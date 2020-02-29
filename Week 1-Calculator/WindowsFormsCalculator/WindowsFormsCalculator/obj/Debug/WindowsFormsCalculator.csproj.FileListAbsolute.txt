@@ -1,9 +1,0 @@
-C:\Users\dell\Documents\GitHub\CSharpHomeWork\Week 1-Calculator\WindowsFormsCalculator\WindowsFormsCalculator\bin\Debug\WindowsFormsCalculator.exe.config
-C:\Users\dell\Documents\GitHub\CSharpHomeWork\Week 1-Calculator\WindowsFormsCalculator\WindowsFormsCalculator\bin\Debug\WindowsFormsCalculator.exe
-C:\Users\dell\Documents\GitHub\CSharpHomeWork\Week 1-Calculator\WindowsFormsCalculator\WindowsFormsCalculator\bin\Debug\WindowsFormsCalculator.pdb
-C:\Users\dell\Documents\GitHub\CSharpHomeWork\Week 1-Calculator\WindowsFormsCalculator\WindowsFormsCalculator\obj\Debug\WindowsFormsCalculator.csprojResolveAssemblyReference.cache
-C:\Users\dell\Documents\GitHub\CSharpHomeWork\Week 1-Calculator\WindowsFormsCalculator\WindowsFormsCalculator\obj\Debug\WindowsFormsCalculator.calculator.resources
-C:\Users\dell\Documents\GitHub\CSharpHomeWork\Week 1-Calculator\WindowsFormsCalculator\WindowsFormsCalculator\obj\Debug\WindowsFormsCalculator.Properties.Resources.resources
-C:\Users\dell\Documents\GitHub\CSharpHomeWork\Week 1-Calculator\WindowsFormsCalculator\WindowsFormsCalculator\obj\Debug\WindowsFormsCalculator.csproj.GenerateResource.Cache
-C:\Users\dell\Documents\GitHub\CSharpHomeWork\Week 1-Calculator\WindowsFormsCalculator\WindowsFormsCalculator\obj\Debug\WindowsFormsCalculator.exe
-C:\Users\dell\Documents\GitHub\CSharpHomeWork\Week 1-Calculator\WindowsFormsCalculator\WindowsFormsCalculator\obj\Debug\WindowsFormsCalculator.pdb
