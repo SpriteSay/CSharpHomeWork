@@ -2,9 +2,9 @@
 软件构造基础课程作业
 by 软工5班 张智敏 2018302110370
 
-Week 1- Calculator
+## Week 1- Calculator
 
-一、控制台版
+### 一、控制台版
 
 按照课堂要求，满足了基本四则运算功能及以下要求：
 
@@ -17,7 +17,7 @@ Week 1- Calculator
 4、较大数据的处理
 
 
-二、WinForm版
+### 二、WinForm版
 
 模仿win10计算器，制作了一款四则运算计算器，支持以下功能：
 
@@ -33,7 +33,7 @@ Week 1- Calculator
 
 
 
-Week 2-Prime
+## Week 2-Prime
 
 1.编写程序输出用户指定数据的所有素数因子。
 
