@@ -1,0 +1,1 @@
+C:\Users\dell\Documents\GitHub\CSharpHomeWork\Week 1-Calculator\ConsoleCalculator\ConsoleCalculator\bin\Debug\ConsoleCalculator.exe.config
