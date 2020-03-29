@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace OrderManagement
 {
-    class Client
+    [Serializable]
+    public class Client
     {
         public string Id { get;  }
 
+        public Client() { }
         public Client(string id)
         {
             Id = id;

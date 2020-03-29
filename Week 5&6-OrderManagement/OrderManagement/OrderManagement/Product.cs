@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace OrderManagement
 {
-    class Product
+    [Serializable]
+    public class Product
     {
         public string Id { get; }
         public string Name { get; }
         public double Price { get; set; }
 
+        public Product() { }
         public Product(string id,string name,double price)
         {
             Id = id;

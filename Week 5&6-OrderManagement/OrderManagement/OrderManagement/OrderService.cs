@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using System.Xml.Serialization;
+using OrderManagement;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OrderManagement
 {
-    class OrderService
+    public class OrderService
     {
-        public List<Order> orders { get; }
+        public List<Order> orders { get; set; }
+
+        public OrderService() { }
 
         public OrderService(List<Order> ods)
         {
@@ -38,15 +43,21 @@ namespace OrderManagement
         }
         public void ChangeOrder(Order od,Client client)
         {
+            int index = orders.IndexOf(od);
             od.Client = client;
+            orders[index].Client = client;
         }
         public void ChangeOrder(Order od,string addr)
         {
+            int index = orders.IndexOf(od);
             od.Address = addr;
+            orders[index].Address = addr;
         }
         public void ChangeOrder(Order od,List<OrderItem> li)
         {
+            int index = orders.IndexOf(od);
             od.Items = li;
+            orders[index].Items = li;
         }
 
         public IEnumerable<Order> SearchOrder(int opt,string info)
@@ -92,6 +103,33 @@ namespace OrderManagement
         public void SortOrder(Comparison<Order> comp)
         {
             orders.Sort(comp);
+        }
+
+        
+        public void Export(string path)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(List<Order>));
+            using(FileStream fs = new FileStream(path, FileMode.Create))
+            {
+                xs.Serialize(fs, orders);
+            }
+        }
+
+        public void Import(string path)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(List<Order>));
+            try
+            {
+                using (FileStream fs = new FileStream(path, FileMode.Open))
+                {
+                    orders = (List<Order>)xs.Deserialize(fs);
+                }
+            }
+            catch (FileNotFoundException ex)
+            {
+                throw ex;
+            }
+
         }
 
     }

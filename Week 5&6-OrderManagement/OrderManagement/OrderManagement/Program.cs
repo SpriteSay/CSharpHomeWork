@@ -8,6 +8,7 @@ namespace OrderManagement
 {
     class Program
     {
+        //WEEK 5
         //写一个订单管理的控制台程序，能够实现添加订单、删除订单、修改订单、查询订单
         //（按照订单号、商品名称、客户等字段进行查询）功能。
         // 提示：主要的类有Order（订单）、OrderItem（订单明细项），OrderService（订单服务），
@@ -20,7 +21,9 @@ namespace OrderManagement
         //（4）订单、订单明细、客户、货物等类添加ToString方法，用来显示订单信息。
         //（5）OrderService提供排序方法对保存的订单进行排序。默认按照订单号排序，也可以使用Lambda表达式进行自定义排序。
 
-        
+        //WEEK 6
+        //1、在OrderService中添加一个Export方法，可以将所有的订单序列化为XML文件；添加一个Import方法可以从XML文件中载入订单。
+        //2、对订单程序中OrderService的各个Public方法添加测试用例。
         static void Main(string[] args)
         {
             //生成商品
@@ -74,16 +77,16 @@ namespace OrderManagement
                 Console.WriteLine("添加订单失败！原因："+e.Message);
             }
 
-            //删除订单测试
-            Console.WriteLine("【删除订单测试】");
-            try
-            {
-                ods.DeleteOrder(od2);
-                //ods.DeleteOrder(od3);
-            }catch(Exception e)
-            {
-                Console.WriteLine("删除订单失败！原因：" + e.Message);
-            }
+            ////删除订单测试
+            //Console.WriteLine("【删除订单测试】");
+            //try
+            //{
+            //    ods.DeleteOrder(od2);
+            //    //ods.DeleteOrder(od3);
+            //}catch(Exception e)
+            //{
+            //    Console.WriteLine("删除订单失败！原因：" + e.Message);
+            //}
 
             //查询订单测试
             Console.WriteLine("【查询订单测试】");
@@ -102,6 +105,15 @@ namespace OrderManagement
             ods.SortOrder((a1, a2) => Convert.ToInt32(a1.TotalPrice - a2.TotalPrice));
             foreach (Order od in ods.orders) Console.WriteLine(od);
 
+            try
+            {
+                ods.Export(".orders.xml");
+                ods.Import(".orders.xml");
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                Console.WriteLine("文件路径不存在！");
+            }
         }
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace OrderManagement
 {
-    class Order:IComparable
+    [Serializable]
+    public class Order:IComparable
     {
         public string OrderId { get; set; }
         public Client Client { get; set; }
@@ -14,6 +15,7 @@ namespace OrderManagement
         public List<OrderItem> Items { set; get; }  //改public??
         public double TotalPrice { get; }
 
+        public Order() {}
         public Order(string id,Client c,string addr,List<OrderItem> items)
         {
             OrderId = id;
