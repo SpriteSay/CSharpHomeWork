@@ -23,7 +23,7 @@ namespace OrderManagement
 
         public override string ToString()
         {
-            return Id + '\t' + Name + '\t' + Price;
+            return Id + '-' + Name + '-' + Price + "元";
         }
     }
 }
