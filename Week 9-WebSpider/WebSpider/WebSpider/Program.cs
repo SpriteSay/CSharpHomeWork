@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace WebSpider
 {
-    class Program
+    static class Program
     {
         [STAThread]
         static void Main()

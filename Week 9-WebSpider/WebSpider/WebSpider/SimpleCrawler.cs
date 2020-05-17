@@ -50,7 +50,7 @@ namespace SimpleCrawler
                     if ((bool)urls[url]) continue;
                     current = url;
                 }
-                if (!Regex.IsMatch(current, @"^(http[s]?://www.cnblogs.com/dstang2000)")) continue;
+                if (!Regex.IsMatch(current, @"^(https?://www.cnblogs.com/dstang2000)")) continue;
                 if (current == null || count > 10) break;
                 Console.WriteLine("爬行" + current + "页面!");
 
