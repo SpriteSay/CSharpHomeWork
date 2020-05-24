@@ -3,35 +3,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Xml.Serialization;
+using System.Data.Entity;
 using OrderManagement;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OrderManagement
 {
-    public class OrderService
+    public static class OrderService
     {
-        public List<Order> orders { get; set; }
+        public static List<Order> orders { get; set; }
 
-        public OrderService() { }
+        //public OrderService() { }
 
-        public OrderService(List<Order> ods)
+        //public static OrderService(List<Order> ods)
+        //{
+        //    orders = ods;
+        //}
+
+        public static List<Order> GetAllOrders()
         {
-            orders = ods;
+            using (var db = new OrderContext())
+            {
+                return db.Orders.Include(o => o.Items.Select(i => i.Prodc)).Include("Client").ToList();
+            }
         }
 
-        public void AddOrder(Order od)
+        public static void AddOrder(Order od)
         {
             if (!orders.Contains(od))
             {
-                orders.Add(od);
+                using (var db = new OrderContext())
+                {
+                    db.Orders.Add(od);
+                    db.SaveChanges();
+                }
                 return;
             }
             Exception e = new Exception("不能添加重复项！");
             throw e;
 
         }
-        public void DeleteOrder(Order od)
+        public static void DeleteOrder(Order od)
         {
             if (orders.Contains(od))
             {
@@ -41,26 +54,26 @@ namespace OrderManagement
             Exception e = new Exception("表单中无此项！");
             throw e;
         }
-        public void ChangeOrder(Order od,Client client)
+        public static void ChangeOrder(Order od,Client client)
         {
             int index = orders.IndexOf(od);
             od.Client = client;
             orders[index].Client = client;
         }
-        public void ChangeOrder(Order od,string addr)
+        public static void ChangeOrder(Order od,string addr)
         {
             int index = orders.IndexOf(od);
             od.Address = addr;
             orders[index].Address = addr;
         }
-        public void ChangeOrder(Order od,List<OrderItem> li)
+        public static void ChangeOrder(Order od,List<OrderItem> li)
         {
             int index = orders.IndexOf(od);
             od.Items = li;
             orders[index].Items = li;
         }
 
-        public IEnumerable<Order> SearchOrder(int opt,string info)
+        public static IEnumerable<Order> SearchOrder(int opt,string info)
         {
             switch (opt)
             {
@@ -85,28 +98,28 @@ namespace OrderManagement
             }
         }
 
-        public override string ToString()
-        {
-            string s = "";
-            foreach (Order od in orders)
-            {
-                s += od + "\r\n";
-            }
-            return s;
-        }
+        //public override string ToString()
+        //{
+        //    string s = "";
+        //    foreach (Order od in orders)
+        //    {
+        //        s += od + "\r\n";
+        //    }
+        //    return s;
+        //}
 
-        public void SortOrder()
+        public static void SortOrder()
         {
             orders.Sort();
         }
 
-        public void SortOrder(Comparison<Order> comp)
+        public static void SortOrder(Comparison<Order> comp)
         {
             orders.Sort(comp);
         }
 
-        
-        public void Export(string path)
+
+        public static void Export(string path)
         {
             XmlSerializer xs = new XmlSerializer(typeof(List<Order>));
             using(FileStream fs = new FileStream(path, FileMode.Create))
@@ -115,7 +128,7 @@ namespace OrderManagement
             }
         }
 
-        public void Import(string path)
+        public static void Import(string path)
         {
             XmlSerializer xs = new XmlSerializer(typeof(List<Order>));
             try

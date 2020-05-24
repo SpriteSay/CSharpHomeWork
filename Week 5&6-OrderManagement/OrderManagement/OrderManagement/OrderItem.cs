@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,12 +11,16 @@ namespace OrderManagement
     [Serializable]
     public class OrderItem
     {
-        public string Id { get; }
+        [Key]
+        public string Id { get; set; }
+
         public Product Prodc { get; set; }
         public int Num { get; set; }
         public double ItemPrice { get; }
 
-        public OrderItem() { }
+        public OrderItem() {
+            Id = Guid.NewGuid().ToString();
+        }
 
         public OrderItem(string id,Product p,int num)
         {

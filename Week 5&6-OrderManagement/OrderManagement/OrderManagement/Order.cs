@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +11,15 @@ namespace OrderManagement
     [Serializable]
     public class Order:IComparable
     {
+        [Key]
         public string OrderId { get; set; }
+
         public Client Client { get; set; }
+
         public string Address { get; set; }
-        public List<OrderItem> Items { set; get; }  //改public??
+
+        //[ForeignKey("OrderItemId")]
+        public List<OrderItem> Items { set; get; }  
         public double TotalPrice { get; }
 
         public Order() {}
