@@ -11,24 +11,32 @@ namespace OrderManagement
     public class Product
     {
         [Key]
-        public string ID { get; set; }
+        public string ProductID { get; set; }
 
         public string Name { get; }
         public double Price { get; set; }
 
         public Product() {
-            ID = Guid.NewGuid().ToString();
+            //ID = Guid.NewGuid().ToString();
         }
         public Product(string name,double price)
         {
-            ID = Guid.NewGuid().ToString();
+            ProductID = Guid.NewGuid().ToString();
             Name = name;
             Price = price;
         }
 
         public override string ToString()
         {
-            return ID + '-' + Name + '-' + Price + "元";
+            return Name + '-' + Price + "元";
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 1479869798;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ProductID);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
+            return hashCode;
         }
     }
 }

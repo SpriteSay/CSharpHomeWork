@@ -14,12 +14,19 @@ namespace OrderManagement
         [Key]
         public string Id { get; set; }
 
+        public int Index { get; set; } 
+
         public Product Prodc { get; set; }
+        //public string ProductID { get; set; }
         public int Num { get; set; }
-        public double ItemPrice { get; }
+        public double ItemPrice { get; set; }
+
+        //[ForeignKey("OrderId")]
+        //public int OrderId { set; get; }
 
         public OrderItem() {
             Id = Guid.NewGuid().ToString();
+            Prodc = new Product("苹果", 5);
         }
 
         public OrderItem(string id,Product p,int num)
@@ -32,8 +39,8 @@ namespace OrderManagement
 
         public override bool Equals(object obj)
         {
-            OrderItem odi = obj as OrderItem;
-            return odi != null && Prodc.Name == odi.Prodc.Name;
+            var odi = obj as OrderItem;
+            return odi != null && Prodc.ProductID== odi.Prodc.ProductID;
         }
 
         public override string ToString()

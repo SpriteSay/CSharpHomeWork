@@ -30,10 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prodc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblOdId = new System.Windows.Forms.Label();
             this.txtOdId = new System.Windows.Forms.TextBox();
             this.lblClient = new System.Windows.Forms.Label();
             this.cmbClient = new System.Windows.Forms.ComboBox();
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblAddress = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.lblItem = new System.Windows.Forms.Label();
@@ -42,16 +48,12 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnDeleteItem = new System.Windows.Forms.Button();
             this.btnFinish = new System.Windows.Forms.Button();
-            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.orderItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prodc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderItemBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView2
@@ -66,9 +68,50 @@
             this.dataGridView2.DataSource = this.orderItemBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(35, 187);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 57;
             this.dataGridView2.RowTemplate.Height = 29;
             this.dataGridView2.Size = new System.Drawing.Size(443, 156);
             this.dataGridView2.TabIndex = 5;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "明细项编号";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 7;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // Prodc
+            // 
+            this.Prodc.DataPropertyName = "Prodc";
+            this.Prodc.HeaderText = "商品";
+            this.Prodc.MinimumWidth = 7;
+            this.Prodc.Name = "Prodc";
+            this.Prodc.ReadOnly = true;
+            this.Prodc.Width = 70;
+            // 
+            // Num
+            // 
+            this.Num.DataPropertyName = "Num";
+            this.Num.HeaderText = "数量";
+            this.Num.MinimumWidth = 7;
+            this.Num.Name = "Num";
+            this.Num.ReadOnly = true;
+            this.Num.Width = 70;
+            // 
+            // ItemPrice
+            // 
+            this.ItemPrice.DataPropertyName = "ItemPrice";
+            this.ItemPrice.HeaderText = "总价";
+            this.ItemPrice.MinimumWidth = 7;
+            this.ItemPrice.Name = "ItemPrice";
+            this.ItemPrice.ReadOnly = true;
+            this.ItemPrice.Width = 70;
+            // 
+            // orderItemBindingSource
+            // 
+            this.orderItemBindingSource.DataSource = typeof(OrderManagement.OrderItem);
             // 
             // lblOdId
             // 
@@ -107,6 +150,10 @@
             this.cmbClient.Name = "cmbClient";
             this.cmbClient.Size = new System.Drawing.Size(121, 25);
             this.cmbClient.TabIndex = 9;
+            // 
+            // clientBindingSource
+            // 
+            this.clientBindingSource.DataSource = typeof(OrderManagement.Client);
             // 
             // lblAddress
             // 
@@ -174,6 +221,7 @@
             // 
             // btnFinish
             // 
+            this.btnFinish.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnFinish.Location = new System.Drawing.Point(3, 44);
             this.btnFinish.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.btnFinish.Name = "btnFinish";
@@ -181,46 +229,11 @@
             this.btnFinish.TabIndex = 16;
             this.btnFinish.Text = "完成";
             this.btnFinish.UseVisualStyleBackColor = true;
+            this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
             // 
-            // clientBindingSource
+            // orderBindingSource
             // 
-            this.clientBindingSource.DataSource = typeof(OrderManagement.Client);
-            // 
-            // orderItemBindingSource
-            // 
-            this.orderItemBindingSource.DataSource = typeof(OrderManagement.OrderItem);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "明细项编号";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // Prodc
-            // 
-            this.Prodc.DataPropertyName = "Prodc";
-            this.Prodc.HeaderText = "商品";
-            this.Prodc.Name = "Prodc";
-            this.Prodc.ReadOnly = true;
-            this.Prodc.Width = 70;
-            // 
-            // Num
-            // 
-            this.Num.DataPropertyName = "Num";
-            this.Num.HeaderText = "数量";
-            this.Num.Name = "Num";
-            this.Num.ReadOnly = true;
-            this.Num.Width = 70;
-            // 
-            // ItemPrice
-            // 
-            this.ItemPrice.DataPropertyName = "ItemPrice";
-            this.ItemPrice.HeaderText = "总价";
-            this.ItemPrice.Name = "ItemPrice";
-            this.ItemPrice.ReadOnly = true;
-            this.ItemPrice.Width = 70;
+            this.orderBindingSource.DataSource = typeof(OrderManagement.Order);
             // 
             // Form2
             // 
@@ -239,9 +252,10 @@
             this.Name = "Form2";
             this.Text = "添加订单";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderItemBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,5 +282,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Num;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemPrice;
         private System.Windows.Forms.BindingSource orderItemBindingSource;
+        private System.Windows.Forms.BindingSource orderBindingSource;
     }
 }

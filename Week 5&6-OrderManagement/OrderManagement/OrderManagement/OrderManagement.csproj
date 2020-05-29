@@ -100,13 +100,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client.cs" />
-    <Compile Include="Order.cs" />
+    <Compile Include="Entity\Client.cs" />
+    <Compile Include="Control\ClientService.cs" />
+    <Compile Include="Entity\Order.cs" />
     <Compile Include="OrderContext.cs" />
-    <Compile Include="OrderItem.cs" />
-    <Compile Include="OrderService.cs" />
-    <Compile Include="Product.cs" />
-    <Compile Include="ProductService.cs" />
+    <Compile Include="Entity\OrderItem.cs" />
+    <Compile Include="Control\OrderService.cs" />
+    <Compile Include="Entity\Product.cs" />
+    <Compile Include="Control\ProductService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

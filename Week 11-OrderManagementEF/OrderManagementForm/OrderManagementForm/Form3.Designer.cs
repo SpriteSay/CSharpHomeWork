@@ -47,13 +47,13 @@
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.ItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.OrderItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrderItemBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -119,6 +119,7 @@
             // 
             // btnFinish
             // 
+            this.btnFinish.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnFinish.Location = new System.Drawing.Point(63, 185);
             this.btnFinish.Name = "btnFinish";
             this.btnFinish.Size = new System.Drawing.Size(166, 31);
@@ -137,6 +138,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(285, 35);
             this.flowLayoutPanel1.TabIndex = 7;
+            this.flowLayoutPanel1.Visible = false;
             // 
             // flowLayoutPanel2
             // 
@@ -220,9 +222,9 @@
             this.textBox3.Size = new System.Drawing.Size(131, 27);
             this.textBox3.TabIndex = 1;
             // 
-            // ItemBindingSource
+            // OrderItemBindingSource
             // 
-            this.ItemBindingSource.DataSource = typeof(OrderManagement.OrderItem);
+            this.OrderItemBindingSource.DataSource = typeof(OrderManagement.OrderItem);
             // 
             // Form3
             // 
@@ -246,7 +248,7 @@
             this.flowLayoutPanel3.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrderItemBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,6 +274,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.BindingSource productBindingSource;
-        private System.Windows.Forms.BindingSource ItemBindingSource;
+        private System.Windows.Forms.BindingSource OrderItemBindingSource;
     }
 }

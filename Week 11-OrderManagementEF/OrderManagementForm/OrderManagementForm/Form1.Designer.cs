@@ -311,6 +311,7 @@
             this.btnModifyOd.TabIndex = 10;
             this.btnModifyOd.Text = "修改订单";
             this.btnModifyOd.UseVisualStyleBackColor = true;
+            this.btnModifyOd.Click += new System.EventHandler(this.btnModifyOd_Click);
             // 
             // btnDeleteOd
             // 
@@ -320,6 +321,7 @@
             this.btnDeleteOd.TabIndex = 11;
             this.btnDeleteOd.Text = "删除订单";
             this.btnDeleteOd.UseVisualStyleBackColor = true;
+            this.btnDeleteOd.Click += new System.EventHandler(this.btnDeleteOd_Click);
             // 
             // btnInputOd
             // 
@@ -329,6 +331,7 @@
             this.btnInputOd.TabIndex = 12;
             this.btnInputOd.Text = "导入订单";
             this.btnInputOd.UseVisualStyleBackColor = true;
+            this.btnInputOd.Click += new System.EventHandler(this.btnInputOd_Click);
             // 
             // btnOutputOd
             // 
@@ -338,6 +341,7 @@
             this.btnOutputOd.TabIndex = 13;
             this.btnOutputOd.Text = "导出订单";
             this.btnOutputOd.UseVisualStyleBackColor = true;
+            this.btnOutputOd.Click += new System.EventHandler(this.btnOutputOd_Click);
             // 
             // Form1
             // 

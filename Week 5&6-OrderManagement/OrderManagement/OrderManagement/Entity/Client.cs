@@ -11,17 +11,17 @@ namespace OrderManagement
     public class Client
     {
         [Key]
-        public string Id { get; set; }
+        public string ClientID { get; set; }
 
         public Client() { }
         public Client(string id)
         {
-            Id = id;
+            ClientID = id;
         }
 
         public override string ToString()
         {
-            return Id;
+            return ClientID;
         }
     }
 }

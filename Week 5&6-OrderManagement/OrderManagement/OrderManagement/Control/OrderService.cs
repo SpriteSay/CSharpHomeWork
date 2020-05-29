@@ -31,29 +31,38 @@ namespace OrderManagement
 
         public static void AddOrder(Order od)
         {
-            if (!orders.Contains(od))
-            {
+            //if (!orders.Contains(od))
+            //{
+
                 using (var db = new OrderContext())
                 {
                     db.Orders.Add(od);
                     db.SaveChanges();
                 }
                 return;
-            }
+            //}
             Exception e = new Exception("不能添加重复项！");
             throw e;
 
         }
-        public static void DeleteOrder(Order od)
+        public static void DeleteOrder(string id)
         {
-            if (orders.Contains(od))
+            //if (orders.Contains(od))
+            //{
+            //orders.Remove(od);
+            //return;
+            //}
+            using (var db = new OrderContext())
             {
-                orders.Remove(od);
-                return;
+                var order = db.Orders.Include("Items").Where(o => o.OrderId == id).FirstOrDefault();
+                db.Orders.Remove(order);
+                db.SaveChanges();
             }
             Exception e = new Exception("表单中无此项！");
             throw e;
         }
+
+
         public static void ChangeOrder(Order od,Client client)
         {
             int index = orders.IndexOf(od);

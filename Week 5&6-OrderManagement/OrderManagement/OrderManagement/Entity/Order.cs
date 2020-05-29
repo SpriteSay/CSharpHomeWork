@@ -15,14 +15,19 @@ namespace OrderManagement
         public string OrderId { get; set; }
 
         public Client Client { get; set; }
+        //[ForeignKey("ClientID")]
+        public string ClientID { get; set; }
 
         public string Address { get; set; }
 
-        //[ForeignKey("OrderItemId")]
         public List<OrderItem> Items { set; get; }  
         public double TotalPrice { get; }
 
-        public Order() {}
+        public Order() {
+            OrderId = Guid.NewGuid().ToString();
+            Items = new List<OrderItem>();
+            Client = new Client("c01");
+        }
         public Order(string id,Client c,string addr,List<OrderItem> items)
         {
             OrderId = id;
@@ -36,6 +41,17 @@ namespace OrderManagement
             }
         }
 
+        public void AddItem(OrderItem orderItem)
+        {
+            if (Items.Contains(orderItem))
+                throw new ApplicationException($"添加错误：订单项已经存在!");
+            Items.Add(orderItem);
+        }
+
+        public void RemoveItem(OrderItem orderItem)
+        {
+            Items.Remove(orderItem);
+        }
 
         public override bool Equals(object obj)
         {

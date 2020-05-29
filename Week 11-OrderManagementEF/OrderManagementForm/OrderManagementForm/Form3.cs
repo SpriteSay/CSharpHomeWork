@@ -22,17 +22,24 @@ namespace OrderManagementForm
         public Form3(OrderItem odi):this()
         {
             OrderItem = odi;
-            this.ItemBindingSource.DataSource = odi;
+            this.OrderItemBindingSource.DataSource = odi;
             productBindingSource.Add(new Product("苹果", 5));
             productBindingSource.Add(new Product("橙子", 7));
             productBindingSource.Add(new Product("梨", 4));
+
         }
 
         private void btnFinish_Click(object sender, EventArgs e)
         {
             //cmbProduct.SelectedItem.GetType();
             Product selectedPd = (Product)cmbProduct.SelectedItem;
-            OrderItem odi = new OrderItem(txtId.Text, selectedPd, Convert.ToInt32(txtNum.Text));
+            //OrderItem = new OrderItem(txtId.Text, selectedPd, Convert.ToInt32(txtNum.Text));
+            OrderItem.Prodc = selectedPd;
+            OrderItem.Num = Convert.ToInt32(txtNum.Text);
+            OrderItem.ItemPrice = OrderItem.Prodc.Price * OrderItem.Num;
+
+            OrderItemBindingSource.ResetBindings(false);
+
         }
     }
 }

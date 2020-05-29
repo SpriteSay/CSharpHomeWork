@@ -63,6 +63,7 @@ namespace OrderManagementForm
 
             //orderBindingSource.DataSource = orders;
             //orderItemBindingSource.DataSource = orders[0].Items;
+            orders = OrderService.GetAllOrders();
             orderBindingSource.DataSource = OrderService.GetAllOrders();
             cmbOpt.SelectedIndex = 0;
             //txtInfo.DataBindings.Add("Text", this, "Keyword");
@@ -72,14 +73,18 @@ namespace OrderManagementForm
         {
             string sinfo = txtInfo.Text;
 
-            orders = OrderService.SearchOrder(cmbOpt.SelectedIndex+1, sinfo).ToList();
-            orderBindingSource.DataSource = orders;
+            //orders = OrderService.SearchOrder(cmbOpt.SelectedIndex+1, sinfo).ToList();
+            //orderBindingSource.DataSource = orders;
+            orderBindingSource.DataSource = OrderService.SearchOrder(cmbOpt.SelectedIndex + 1, sinfo).ToList();
+
         }
 
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            orders = (List<Order>) orderBindingSource.DataSource;
             selectedIndex = e.RowIndex;
+            
             selectedOrder = orders[selectedIndex];
             orderItemBindingSource.DataSource = selectedOrder.Items;
             orderItemBindingSource.ResetBindings(false);
@@ -96,6 +101,33 @@ namespace OrderManagementForm
                 orderBindingSource.ResetBindings(false);
             }
             //f2.Show();
+        }
+
+        private void btnModifyOd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteOd_Click(object sender, EventArgs e)
+        {
+            Order order = orderBindingSource.Current as Order;
+            if (order == null)
+            {
+                MessageBox.Show("请选择一个订单进行删除");
+                return;
+            }
+            OrderService.DeleteOrder(order);
+            //QueryAll();
+        }
+
+        private void btnInputOd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOutputOd_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
